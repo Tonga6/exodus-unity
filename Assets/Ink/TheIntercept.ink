@@ -51,11 +51,23 @@ No more modules to visit
 
 Day {day}
 VAR felt = "" 
-It will be a long time before I can return home. As we left Earth behind, I felt <>
-    * [hope] ... hope
-    * [dread]
-- <> at
-    * [End Intro]
+I can't believe this day has come. As we left Earth behind, I felt
+    * (wist)[wistful] ... wistful. I don't want to go... Maybe one day I can return.
+    *(dread) [dread] ... dread. This journey is more dangerous than anything I have ever done.
+    * (joy)[joy] ... joy. I've waited all my life for this moment, and it's finally here.
+
+- We watched the planet drift away from our small viewport for while, but I didn't stay long. {wist: It hurt too much. Somehow, I know I'll never return}{dread: It only reminded me that there's no turning back.}{joy: I'm ready to look ahead. If I never think of Earth again, it will be too soon.}
+
+I think Rog {wist: feels the same way.}{dread: is too homesick to worry about what's ahead.}{joy:is already counting the days until he can return.}
+<> Artem seems pretty unemotional about the whole thing. I think he's just concerned about  putting food on the table.
+
+Rog suggested we get to know each other better over breakfast tomorrow.
+    * [I look forward to it]{wist||dread: Hopefully making some new friends will take my mind off of}{wist: home} {dread: what lies ahead.} {joy: New beginnings, new friends. I can't wait to leave the past behind.}
+    * [I agreed reluctantly] {wist||dread: It's hard to think about anything }{wist: but home,} {dread: other than what lies ahead,} {wist||dread: but I agreed nonetheless. Getting off on the wrong foot will make for an uncomfortable journey.}{joy: I'm not really interested in getting to know either of them, but I suppose I'll have to play nice while we're together.}
+
+- I'm starting to nod off, better get some sleep. {wist: Maybe I'll dream of home.} {dread: Or try to, at least.} {joy: Let's see what the future holds.}
+
+    * [Next Day]
         -> next_module
 
 
@@ -66,7 +78,7 @@ It will be a long time before I can return home. As we left Earth behind, I felt
 Day {day}
 
 We took a pit stop at the lunar outpost.
- * [End Lunar]
+ * [Next Day]
     -> next_module
 
 
@@ -77,7 +89,7 @@ We took a pit stop at the lunar outpost.
 Day {day}
 
 There's always sound in the ship. A constant hum.
- * [End Introspection]
+ * [Next Day]
     -> next_module
 
 
@@ -86,7 +98,7 @@ There's always sound in the ship. A constant hum.
 Day {day}
 
 Rog insisted we detour to the races.
- * [End Race Day]
+ * [Next Day]
     -> next_module
 
 
