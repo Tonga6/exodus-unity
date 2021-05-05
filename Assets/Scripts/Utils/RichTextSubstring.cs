@@ -34,7 +34,7 @@
 		string result = string.Empty;
 		bool isItalic = false;
 
-		for (int i = startIndex; i < startIndex + length; i++) {
+		for (int i = startIndex; i < startIndex + length && i < plainTextItalicState.Length; i++) {
 			if (isItalic && !plainTextItalicState [i]) {
 				isItalic = false;
 				result += CLOSE_ITALIC_TAG;

@@ -31,6 +31,7 @@ public class GameState : MainState {
 	public SettingsView settingsView;
 	public SettingsButton settingsButton;
 
+	ContentView contentView;
 	private void Awake () {
 		contentManager.enabled = false;
 		settingsView.Hide();
@@ -71,7 +72,18 @@ public class GameState : MainState {
 			ChevronButtonView chevronView = null;
 			while(story.canContinue) {
 				string content = story.Continue().Trim();
-				ContentView contentView = CreateContentView(content);
+				Debug.Log(content);
+				if (content.StartsWith("... "))
+                {
+					Debug.Log("Glue");
+					contentView.content += content;
+					
+					contentView.textTyper.Type(content);
+					contentView.text.text += content;
+				}
+				else
+					contentView = CreateContentView(content);
+
 				if(!story.canContinue) {
 					if(story.currentChoices.Count > 0) {
 						choiceView = CreateChoiceGroupView(story.currentChoices);

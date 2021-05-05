@@ -89,7 +89,7 @@ public class TypedText {
 		FinishTypingString();
 	}
 
-	private void Type (string stringToAdd) {
+	public void Type (string stringToAdd) {
 		text += stringToAdd;
 		if(OnTypeText != null) OnTypeText(stringToAdd);
 		TextChanged(text);

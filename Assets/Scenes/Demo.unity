@@ -176,7 +176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &19126363
@@ -1166,7 +1166,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371677277
@@ -1313,7 +1313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &408694146
@@ -2314,7 +2314,7 @@ GameObject:
   - component: {fileID: 796198951}
   - component: {fileID: 796198950}
   m_Layer: 5
-  m_Name: INKLE PRESENTS
+  m_Name: ENSO PRESENTS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2351,7 +2351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657e5ce7076e143b5bbd56f3d003db72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_spacing: 60
+  m_spacing: 40
 --- !u!114 &796198951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2373,7 +2373,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: acd5ec74ebbd9484bba2394cfce7ebfe, type: 3}
+    m_Font: {fileID: 12800000, guid: 099b008022fd8a24997a3f7d5889d924, type: 3}
     m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
@@ -2385,7 +2385,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: INKLE PRESENTS
+  m_Text: ENSO PRESENTS
 --- !u!222 &796198952
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2749,7 +2749,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: acd5ec74ebbd9484bba2394cfce7ebfe, type: 3}
+    m_Font: {fileID: 12800000, guid: 099b008022fd8a24997a3f7d5889d924, type: 3}
     m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
@@ -2761,7 +2761,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: THE INTERCEPT
+  m_Text: EXODUS
 --- !u!114 &1003711404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2774,7 +2774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62969df608484908859668afc3e4e2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: THE INTERCEPT
+  content: EXODUS
   letterTypeTime: {x: 0.23, y: 0.27}
 --- !u!222 &1003711405
 CanvasRenderer:
@@ -4324,7 +4324,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: acd5ec74ebbd9484bba2394cfce7ebfe, type: 3}
+    m_Font: {fileID: 12800000, guid: 72f584a1e653c4d46986ebd8f9bee4e4, type: 3}
     m_FontSize: 42
     m_FontStyle: 0
     m_BestFit: 0
@@ -4336,7 +4336,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: THE INTERCEPT
+  m_Text: EXODUS
 --- !u!222 &1588716968
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4709,7 +4709,7 @@ GameObject:
   - component: {fileID: 1835827614}
   - component: {fileID: 1835827613}
   m_Layer: 5
-  m_Name: Inkle Presents
+  m_Name: Enso Presents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4746,7 +4746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657e5ce7076e143b5bbd56f3d003db72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_spacing: 60
+  m_spacing: 40
 --- !u!114 &1835827614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4768,7 +4768,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: acd5ec74ebbd9484bba2394cfce7ebfe, type: 3}
+    m_Font: {fileID: 12800000, guid: 4b67647f7d97cac438e2163203b2fbbc, type: 3}
     m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
@@ -4780,7 +4780,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: INKLE PRESENTS
+  m_Text: ENSO PRESENTS
 --- !u!114 &1835827615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4793,7 +4793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62969df608484908859668afc3e4e2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: INKLE PRESENTS
+  content: ENSO PRESENTS
   letterTypeTime: {x: 0.11, y: 0.14}
 --- !u!222 &1835827616
 CanvasRenderer:
