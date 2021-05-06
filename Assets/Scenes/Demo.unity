@@ -3655,7 +3655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b96599e2657435f92b4a63b2996703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipIntro: 0
+  skipIntro: 1
   fastIntro: 0
   currentState: {fileID: 0}
   introState: {fileID: 1569955018}

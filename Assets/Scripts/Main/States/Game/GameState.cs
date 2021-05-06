@@ -72,14 +72,12 @@ public class GameState : MainState {
 			ChevronButtonView chevronView = null;
 			while(story.canContinue) {
 				string content = story.Continue().Trim();
-				Debug.Log(content);
+				//Append new text to same contentView (No line break)
 				if (content.StartsWith("... "))
                 {
-					Debug.Log("Glue");
-					contentView.content += content;
-					
-					contentView.textTyper.Type(content);
-					contentView.text.text += content;
+					content = content.Substring(3);
+					contentView.richText = new RichTextSubstring(contentView.content + content); 
+					contentView.textTyper.TypeText(content,contentView.textTyperSettings);
 				}
 				else
 					contentView = CreateContentView(content);

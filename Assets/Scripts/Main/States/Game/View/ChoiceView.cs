@@ -48,7 +48,7 @@ public class ChoiceView : StoryElementView {
 	public void Render () {
 		text.text = content;
 		base.LayoutText (content);
-		StartCoroutine(FadeIn(2f));
+		StartCoroutine(FadeIn(1f));
 	}
 
 	public IEnumerator FadeIn (float fadeTime) {

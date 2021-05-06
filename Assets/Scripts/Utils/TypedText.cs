@@ -44,6 +44,7 @@ public class TypedText {
 		if(string.IsNullOrEmpty(myText)) 
 			return;
 		// This should be a struct or deep cloned to prevent editing externally
+		
 		this.settings = settings;
 		CreateDelayDictionary(settings.customTypeDelays, out customStringTypeTimeDictionary);
 		CreateDelayDictionary(settings.customPostTypePause, out customPostTypePauseDictionary);
