@@ -52,8 +52,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   content: 
-  driedColor: {r: 0.4392157, g: 0.39607844, b: 0.35686275, a: 1}
-  wetColor: {r: 0.125, g: 0.105742306, b: 0.08823529, a: 1}
+  textTyperSettings:
+    splitMode: 0
+    customSplitString:
+    - ','
+    - '
+
+'
+    customTypeDelays: []
+    customPostTypePause: []
+  driedColor: {r: 1, g: 1, b: 1, a: 1}
+  wetColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!222 &22245148
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -75,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

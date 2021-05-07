@@ -63,8 +63,8 @@ I think Rog {wist: feels the same way.}{dread: is too homesick to worry about wh
 <> Artem seems pretty unemotional about the whole thing. I think he's just concerned about  putting food on the table.
 
 Rog suggested we spend tomorrow getting to know each other better.
-    * [I look forward to it]{wist||dread: Hopefully making some new friends will take my mind off of}{wist: home.} {dread: what lies ahead.} {joy: New beginnings, new friends. I can't wait to leave the past behind.}
-    * [I agreed reluctantly] {wist||dread: It's hard to think about anything }{wist: but home,} {dread: other than what lies ahead,} {wist||dread: but I agreed nonetheless. Getting off on the wrong foot will make for an uncomfortable journey.}{joy: I'm not really interested in getting to know either of them, but 21 days is a long time to be crammed together with strangers.}
+    * [I look forward to it]{wist||dread: ... Hopefully making some new friends will take my mind off of}{wist: home.} {dread: what lies ahead.} {joy: ... New beginnings, new friends. I can't wait to leave the past behind.}
+    * [I agreed reluctantly] {wist||dread: ... It's hard to think about anything }{wist: but home,} {dread: other than what lies ahead,} {wist||dread: but I agreed nonetheless. Getting off on the wrong foot will make for an uncomfortable journey.}{joy: ... I'm not really interested in getting to know either of them, but 21 days is a long time to be crammed together with strangers.}
 
 - I'm starting to nod off, better get some sleep. {wist: Maybe I'll dream of home.} {dread: Or try to, at least.} {joy: Let's see what the future holds.}
 
