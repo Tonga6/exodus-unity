@@ -76,7 +76,8 @@ public class GameState : MainState {
 				if (content.StartsWith("... "))
                 {
 					content = content.Substring(3);
-					contentView.richText = new RichTextSubstring(contentView.content + content); 
+					contentView.richText = new RichTextSubstring(contentView.content + content);
+					//contentView.gl
 					contentView.textTyper.TypeText(content,contentView.textTyperSettings);
 				}
 				else

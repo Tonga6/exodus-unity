@@ -1,4 +1,4 @@
-LIST Visitable = (_intro), (_meet), (_lunar), (_introspection), (_race)
+LIST Visitable = (_intro), (_meet), (_lunar), (_introspection), (_race), (_hospitalised)
 VAR day = 0
 
 
@@ -19,7 +19,7 @@ VAR day = 0
         }
         
         //else find random playable module
-        ~ temp next_mod = RANDOM(1,4)
+        ~ temp next_mod = RANDOM(1,6)
         
         {
         	- next_mod == 1 && Visitable ? (_meet): 
@@ -37,6 +37,10 @@ VAR day = 0
         	- next_mod == 4 && Visitable ? (_race): 
         	    ~ Visitable -= _race
         		-> race_day
+        		
+        	- next_mod == 5 && Visitable ? (_hospitalised): 
+        	    ~ Visitable -= _hospitalised
+        		-> hopsitalised_passenger
         		
         	- else:	
         		->next_module
@@ -128,6 +132,51 @@ Day {day}
 It was Artem's birthday today. We only found out when his wife called to celebrate it.
  * [Next Day]
     -> next_module
+    
+    
+===smuggled_cigs===
+~day++
+Day {day}
+
+It was Artem's birthday today. We only found out when his wife called to celebrate it.
+ * [Next Day]
+    -> next_module
+    
+    
+===sick_neighbour===
+~day++
+Day {day}
+
+It was Artem's birthday today. We only found out when his wife called to celebrate it.
+ * [Next Day]
+    -> next_module
+    
+    
+===halfway===
+~day++
+Day {day}
+
+It was Artem's birthday today. We only found out when his wife called to celebrate it.
+ * [Next Day]
+    -> next_module
+    
+    
+===hopsitalised_passenger===
+~day++
+Day {day}
+
+I heard a guard hospitalised a passenger over in C-Block. Some argument over break-time that escalated too far. To be honest, I'm surprised
+
+    * (first)... it hasn't happened before.[] 
+    
+    * ... the passenger survived.[] The guards usually get carried away with these things.
+    * ... the guard made it out.[] It's been a case of them or us between us passengers and the crew for a long time. The guard must have caught the passenger alone, or it might have been a different person in the med-bay.
+    
+-{first:<> The guards are always looking for an excuse to start a fight, and some of the guys here still haven't learned to behave.}
+Regardless, I should call it a night.
+
+     * [Next Day]
+        -> next_module
 
 
 

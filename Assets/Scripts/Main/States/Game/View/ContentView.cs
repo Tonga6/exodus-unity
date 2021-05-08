@@ -8,8 +8,9 @@ public class ContentView : StoryElementView {
 	public TypedText.TypedTextSettings textTyperSettings;
 	public Color driedColor;
 	public Color wetColor;
-
+	public GridLayout gl;
 	protected override void Awake () {
+		gl = GetComponent<GridLayout>();
 		textTyper = new TypedText();
 		text.color = wetColor;
 		base.Awake();
@@ -23,6 +24,7 @@ public class ContentView : StoryElementView {
 				textTyper.ShowInstantly();
 			}
 		}
+		
 	}
 
 	public override void LayoutText (string content) {
