@@ -1,4 +1,4 @@
-LIST Visitable = (_intro), (_meet), (_lunar), (_introspection), (_race), (_hospitalised), (_found_guard)
+LIST Visitable = (_intro), (_meet), (_plant), (_flu), (_introspection), (_b_day), (_hospitalised), (_found_guard)
 
 LIST Choices = wist, dread, joy, volunteered, warned, did_nothing
 
@@ -14,40 +14,44 @@ VAR day = 0
     
         ~temp num = LIST_RANDOM(Visitable)
         //If first module play intro
-        {
-            - Visitable ? (_intro):
-                ~ Visitable -= _intro
-                -> intro
+        // {
+        //     - Visitable ? (_intro):
+        //         ~ Visitable -= _intro
+        //         -> intro
                 
-        }
+        // }
         
         //else find random playable module
-        ~ temp next_mod = RANDOM(1,6)
+        ~ temp next_mod = RANDOM(1,7)
         
         {
         // 	- next_mod == 1 && Visitable ? (_meet): 
         // 	    ~ Visitable -= _meet
         // 		-> meet_greet
         		
-        // 	- next_mod == 2 && Visitable ? (_lunar): 
-        // 	    ~ Visitable -= _lunar
-        // 		-> lunar_stop
+        	- next_mod == 2 && day > 1 && Visitable ? (_flu): 
+        	    ~ Visitable -= flu
+        		-> flu
         		
         // 	- next_mod == 3 && Visitable ? (_introspection): 
         // 	    ~ Visitable -= _introspection
         // 		-> introspection
         		
-        // 	- next_mod == 4 && Visitable ? (_race): 
-        // 	    ~ Visitable -= _race
-        // 		-> race_day
+        	- next_mod == 4 && Visitable ? (_b_day): 
+        	    ~ Visitable -= _b_day
+        		-> b_day
         		
         	- next_mod == 5 && Visitable ? (_hospitalised): 
         	    ~ Visitable -= _hospitalised
         		-> hopsitalised_passenger
         		
         	- next_mod == 6 && !(Visitable ? (_hospitalised)) && Visitable ? (_found_guard): 
-        	    ~ Visitable -= _hospitalised
+        	    ~ Visitable -= _found_guard
         		-> finding_the_guard
+        		
+        	- next_mod == 7 && (Visitable ? (_plant)): 
+        	    ~ Visitable -= _plant
+        		-> plant_dies
         		
         	- else:	
         		->next_module
@@ -108,14 +112,21 @@ After my first day on the ship, the thing that stood out to me the most was
         
         
         
-===lunar_stop===
+===flu===
 ~day++
 Day {day}
 
-We took a pit stop at the lunar outpost.
- * [Next Day]
-    -> next_module
+There's been a flu outbreak on the ship - pretty nasty strain from what I've heard. I guess not everyone quarentined like they were supposed to before this journey.
 
+    * ... I don't blame them.[] Most of us had to spend our entire savings just to make this trip. Two weeks in quarentine and without work would have starved some.
+    
+    * ... It was irresponsible.[] They disregarded the sacrifice that everyone else made, and now people might die before we even reach Mars.
+    
+-  Regardless, what's done is done. Now nobody can leave their rooms until the virus fades. Artem and I were in line with three people who are sick pretty bad with it, so I hope we didn't catch it. 
+
+    * [Next Day]
+        -> next_module
+    
 
 
 
@@ -128,11 +139,15 @@ Day {day}
     -> next_module
 
 
-===race_day===
+===plant_dies===
 ~day++
 Day {day}
 
-Rog insisted we detour to the races.
+Artem's tulip died. It was malnourished to start with, and then the guards stopped letting us take water from the mess hall after some idiots shorted the lighting in their wing. Artem refused to let anyone pay for Clarke to smuggle some for us, so we watched it wilt until now it's safe to say that the plant is well a truly dead.
+
+    * It's a shame.[]  {Choices ? wist: It reminded me of home.} {Choices ? dread: Watching it grow helped me take my mind off of things.} {Choices ? joy: The splash of colour was a nice contrast to our room.}
+    * Makes no difference to me.[] Artem's not too fussed either, so I doubt I'll lose any sleep over the plant.
+-
  * [Next Day]
     -> next_module
     
@@ -141,7 +156,14 @@ Rog insisted we detour to the races.
 ~day++
 Day {day}
 
-It was Artem's birthday today. We only found out when his wife called to celebrate it.
+Turns out it was Artem's birthday today. We only found out when his wife called him in the morning. Rog and I 
+    * ... let them celebrate alone.
+        Artem's a quiet guy, we figured he would prefer to keep it between himself and his wife. We went next door to Declan and the others and played poker with them for the day.
+    * ... joined the celebrations.[]//
+        <> Any cause for celebration on this ship is a good thing. 
+        Rog got his hands on some beer for the occasion. I guess he knows the right people, though I wonder what he paid for it.
+        
+-
  * [Next Day]
     -> next_module
     
@@ -177,33 +199,37 @@ It was Artem's birthday today. We only found out when his wife called to celebra
 ~day++
 Day {day}
 
-I heard a guard hospitalised a passenger over in C-Block. Some argument over break-time that escalated too far. To be honest, I'm surprised
+A guard hospitalised someone over in C-Block. Shattered knee-cap and busted face, from what I heard. Apparently it was over some argument that escalated too far. To be honest, I'm surprised
 
-    * ... it hasn't happened before.[] The guards are always looking for an excuse to start a fight, and some of the guys here still haven't learned to behave. 
+    * ... it hasn't happened before.[] The guards are always looking for an excuse to start a fight, and some of the guys here don't know how to avoid one. 
     
-    * ... the passenger survived.[] The guards usually get carried away with these things.
-    * ... the guard made it out.[] It's been a case of them or us between us passengers and the crew for a long time. The guard must have caught the passenger alone, or it might have been a different person in the med-bay.
+    * ... the victim didn't get it worse.[] The guards have a tendency to get carried away with these things. 
     
-- Word's been going around that a group's being formed to pay this guard a visit.
+    * ... the guard made it out.[] Plenty of the guys are itching to go with the guards because of how they treat us. The passenger must have been alone, or I reckon it would have been a different person in the med-bay.
+    
+- Some of us are getting together to pay this guard a visit.
 
     * I volunteered[.] to join them. 
     ~ Choices += volunteered
     
-        ** ... We have to protect ourselves.[] They need to be told that they can't do that to us. Otherwise, it could be me next.
-        ** ... We need revenge.[] No way am I letting them get away with doing this to one of our own.
-    -- <> I'll be informed once we find out where the guard lives.
+        ** ... We have to protect ourselves.[] If they think they can get away with this, it'll happen again. It could be me next.
+        ** ... We need revenge.[] I won't let them get away with doing this to one of our own.
+        
+    --  Artem and Rog tried to talk me out of it, but my mind is made. They'll let me know once we find out where the guard lives.
         
     * I warned a guard about the plot. 
     ~ Choices += warned
         ** ... We can't meet violence with violence.[] There will be no winners if this guard gets hurt as a result of today.
         ** ... I scratch his back, he scratches mine.[] The guard patrols my ward, so it'd be nice to have him on side.
-    -- <> He took my warning seriously, so hopefully nothing happens to this guard.
+        
+    -- He took my warning seriously, so hopefully nothing happens to this guard.
         
     * [I didn't get involved.] Someone just knocked on our door to recruit us, but we all turned him down. 
     ~ Choices += did_nothing
         ** ... I won't risk my neck for a stranger.[] {Choices ? wist: I didn't leave home to die far away from everyone I love.} {Choices ? dread: I have enough things to worry about already.} {Choices ? joy: I have too much to look forward to. I won't throw this fresh start away.}
         ** ... The passenger deserved it.[] Provoking a guard like that was bound to end poorly.
-    -- <> 
+        
+    -- Rog and Artem didn't get involved either.
 
 - 
      * [Next Day]
@@ -216,28 +242,7 @@ Day {day}
 
 ~temp test = Choices ? warned
  {test}
-    * (first)... it hasn't happened before.[] The guards are always looking for an excuse to start a fight, and some of the guys here still haven't learned to behave. 
-    
-    * ... the passenger survived.[] The guards usually get carried away with these things.
-    * ... the guard made it out.[] It's been a case of them or us between us passengers and the crew for a long time. The guard must have caught the passenger alone, or it might have been a different person in the med-bay.
-    
-- Word's been going around that a group's being formed to pay this guard a visit.
-
-    * I volunteered[.] to join them. 
-        ** ... We have to protect ourselves.[] They need to be told that they can't do that to us. Otherwise, it could be me next.
-        ** ... We need revenge.[] No way am I letting them get away with doing this to one of our own.
-    -- <> I'll be informed once we find out where the guard lives.
-        
-    * I warned a guard about the plot. 
-        ** ... We can't meet violence with violence.[] There will be no winners if this guard gets hurt as a result of today.
-        ** ... I scratch his back, he scratches mine.[] The guard patrols my ward, so it'd be nice to have him on side.
-    -- <> He took my warning seriously, so hopefully nothing happens to this guard.
-        
-    * [I didn't get involved.] Someone just knocked on our door to recruit us, but we all turned him down.
-        ** ... I won't risk my neck for a stranger.[] {Choices ? wist: I didn't leave home to die far away from everyone I love.} {Choices ? dread: I have enough things to worry about already.} {Choices ? joy: I have too much to look forward to. I won't throw this fresh start away.}
-        ** ... The passenger deserved it.[] Provoking a guard like that was bound to end poorly.
-    -- <> 
-
+   
 - 
      * [Next Day]
         -> next_module
