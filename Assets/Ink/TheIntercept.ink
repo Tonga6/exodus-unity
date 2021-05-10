@@ -1,6 +1,6 @@
-LIST Visitable = (_intro), (_meet), (_plant), (_flu), (_introspection), (_b_day), (_hospitalised), (_found_guard)
+LIST Visitable = (_intro), (_meet), (_search), (_plant), (_flu), (_introspection), (_b_day), (_hospitalised), (_found_guard)
 
-LIST Choices = wist, dread, joy, volunteered, warned, did_nothing
+LIST Choices = wist, dread, joy, volunteered, warned, did_nothing, guard_dead, guard_beat, guard_scared
 
 VAR day = 0
 
@@ -22,15 +22,15 @@ VAR day = 0
         // }
         
         //else find random playable module
-        ~ temp next_mod = RANDOM(1,7)
+        ~ temp next_mod = RANDOM(1,16)
         
         {
         // 	- next_mod == 1 && Visitable ? (_meet): 
         // 	    ~ Visitable -= _meet
         // 		-> meet_greet
         		
-        	- next_mod == 2 && day > 1 && Visitable ? (_flu): 
-        	    ~ Visitable -= flu
+        	- next_mod == 2 && day > 3 && Visitable ? (_flu): 
+        	    ~ Visitable -= _flu
         		-> flu
         		
         // 	- next_mod == 3 && Visitable ? (_introspection): 
@@ -41,7 +41,7 @@ VAR day = 0
         	    ~ Visitable -= _b_day
         		-> b_day
         		
-        	- next_mod == 5 && Visitable ? (_hospitalised): 
+        	- next_mod == 5 && day > 6 && Visitable ? (_hospitalised): 
         	    ~ Visitable -= _hospitalised
         		-> hopsitalised_passenger
         		
@@ -49,9 +49,13 @@ VAR day = 0
         	    ~ Visitable -= _found_guard
         		-> finding_the_guard
         		
-        	- next_mod == 7 && (Visitable ? (_plant)): 
+        	- next_mod == 7 && day > 4 && (Visitable ? (_plant)): 
         	    ~ Visitable -= _plant
         		-> plant_dies
+
+            - next_mod == 8 && day > 3 && (Visitable ? (_search)): 
+        	    ~ Visitable -= _search
+        		-> search
         		
         	- else:	
         		->next_module
@@ -100,12 +104,7 @@ Day {day}
 
 07:13
 
-After my first day on the ship, the thing that stood out to me the most was
-    * [The noise]
-    * [How crowded it is]
-    * [a]
-
-- <>They only let us out of our cabins a couple of times a day, not that there's much to do anyway.
+We're technically only supposed to leave our cabins during breaks, but everyone on our deck spent most of the day wandering the corridors and meeting neighbours. There must be close to a thousand people on our deck, and there's a total of eleven decks on the ship.
 
     * [Next Day]
         -> next_module
@@ -116,13 +115,13 @@ After my first day on the ship, the thing that stood out to me the most was
 ~day++
 Day {day}
 
-There's been a flu outbreak on the ship - pretty nasty strain from what I've heard. I guess not everyone quarentined like they were supposed to before this journey.
+There's been a flu outbreak on the ship - pretty nasty strain from what I've heard. I guess not everyone quarantined before coming on board like they were supposed to.
 
     * ... I don't blame them.[] Most of us had to spend our entire savings just to make this trip. Two weeks in quarentine and without work would have starved some.
     
     * ... It was irresponsible.[] They disregarded the sacrifice that everyone else made, and now people might die before we even reach Mars.
     
--  Regardless, what's done is done. Now nobody can leave their rooms until the virus fades. Artem and I were in line with three people who are sick pretty bad with it, so I hope we didn't catch it. 
+-  Regardless, what's done is done. Now nobody can leave their rooms until the virus fades. Artem and I were in line for food with someone who is sick pretty bad with it, so I hope we didn't catch anything. 
 
     * [Next Day]
         -> next_module
@@ -143,7 +142,7 @@ Day {day}
 ~day++
 Day {day}
 
-Artem's tulip died. It was malnourished to start with, and then the guards stopped letting us take water from the mess hall after some idiots shorted the lighting in their wing. Artem refused to let anyone pay for Clarke to smuggle some for us, so we watched it wilt until now it's safe to say that the plant is well a truly dead.
+Artem's tulip died. The guards stopped letting us take water from the mess hall after some idiots shorted the lighting in their wing. Artem refused to let anyone pay for Clarke to smuggle some for us, so we watched it wilt until now it's safe to say that the plant is well a truly dead.
 
     * It's a shame.[]  {Choices ? wist: It reminded me of home.} {Choices ? dread: Watching it grow helped me take my mind off of things.} {Choices ? joy: The splash of colour was a nice contrast to our room.}
     * Makes no difference to me.[] Artem's not too fussed either, so I doubt I'll lose any sleep over the plant.
@@ -168,11 +167,16 @@ Turns out it was Artem's birthday today. We only found out when his wife called 
     -> next_module
     
     
-===smuggled_cigs===
+===search===
 ~day++
 Day {day}
 
-It was Artem's birthday today. We only found out when his wife called to celebrate it.
+We had a surprise search in the middle of the night. A group of guards pretty much knocked our door down and started going through all of our things. Someone must have let slip about Clarke's racket, and now the guards are doing a sweep for contraband.
+    * It's about time.[] A lot of the things Clarke smuggles is harmless, but someone came to our door yesterday offering ciggarettes and lighters.
+    
+    * It's a waste of time.[] Clarke will be back up and running in no time, and whoever snitched will have a lot to answer for.
+    
+-
  * [Next Day]
     -> next_module
     
@@ -181,7 +185,7 @@ It was Artem's birthday today. We only found out when his wife called to celebra
 ~day++
 Day {day}
 
-It was Artem's birthday today. We only found out when his wife called to celebrate it.
+We've been listening to Devin hack his guts up all day. The med-bays are full, so .
  * [Next Day]
     -> next_module
     
@@ -240,10 +244,53 @@ A guard hospitalised someone over in C-Block. Shattered knee-cap and busted face
 ~day++
 Day {day}
 
-~temp test = Choices ? warned
- {test}
-   
-- 
+{Choices ? volunteered: 
+
+    I got word that someone had found where the guard's room is. Me and six others are just back from paying him a visit. We 
+
+    * ... killed him.
+        ~Choices += guard_dead
+        I haven't managed to completely wash the blood off of my hands yet.
+        ** I'm glad we killed him,
+            as far as I'm concerned, he got what he deserved.
+            -> gather
+        ** I feel sick.
+            I didn't mean things to go as far as they did, but I couldn't stop it. I noticed the way Rog and Artem looked at me when they saw the blood, and I don't blame them.
+            -> gather
+            
+    * ... beat him.
+        ~ Choices += guard_beat
+        ... Only as much as he gave our guy, plus interest. If he's lucky, he'll be back on his feet by the time we reach Mars. Artem and Rog were pretty unhappy when I came back, but they seemed relieved that we didn't take it any further with the guard.
+            
+        -> gather
+        
+    * ... intimidated him.
+        He'll be sore in the morning, but he'll recover. Now that the guards know we can find them, I expect they'll leave us alone.
+        ~ Choices += guard_scared
+
+        
+        -> gather
+    
+
+}
+
+{Choices ? warned: 
+    A bunch of guys were arrested last night. Seems like my tip about the plot to find that guard paid off. Hopefully that's the end of it.
+    -> gather
+}
+{Choices ? did_nothing: 
+    ~Choices += guard_dead
+    The guard is dead. The one that beat up O'Brien. It happened in the middle of the night. Don't know exactly what they did to him, but I heard it was a mess in there.
+}
+
+=gather
+-   {Choices ? guard_dead: There's bound to be consequences for this. The other guards won't let this stand.}
+    {Choices ? guard_beat: 
+        I reckon the other guards will make a small show of strength after this and then that will be that. We could have done a lot worse. 
+    }
+    {Choices ? guard_scared: I expect that the guards won't retaliate. They know we let him off easy.}
+
+
      * [Next Day]
         -> next_module
 

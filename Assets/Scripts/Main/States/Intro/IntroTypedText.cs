@@ -7,6 +7,7 @@ public class IntroTypedText : UIMonoBehaviour {
 	public string content;
 	public Vector2 letterTypeTime = new Vector2(0.1f, 0.1f);
 	public TypedText typedText;
+	RectTransform rt;
 	private Text text {
 		get {
 			return GetComponent<Text>();
@@ -14,6 +15,8 @@ public class IntroTypedText : UIMonoBehaviour {
 	}
 
 	private void OnEnable () {
+		rt = GetComponent<RectTransform>();
+		rt.sizeDelta = new Vector2(300,500);
 		TypedText.TypedTextSettings typedTextSettings = new TypedText.TypedTextSettings();
 		typedTextSettings.splitMode = TypedText.TypedTextSettings.SplitMode.Character;
 		typedTextSettings.defaultTypeDelay = new TypedText.RandomTimeDelay(letterTypeTime.x, letterTypeTime.y);
@@ -25,13 +28,12 @@ public class IntroTypedText : UIMonoBehaviour {
 
 		Canvas.ForceUpdateCanvases();
 
-		TextGenerator textGenerator = new TextGenerator();
-		TextGenerationSettings textGeneratorSettings = text.GetGenerationSettings(new Vector2(0, 100));
-		textGeneratorSettings.updateBounds = true;
-		textGeneratorSettings.scaleFactor = 1;
-		textGenerator.Populate(content, textGeneratorSettings);
-		rectTransform.sizeDelta = new Vector2(textGenerator.rectExtents.width * 2, rectTransform.sizeDelta.y);
-		text.alignment = TextAnchor.MiddleLeft;
+		//TextGenerator textGenerator = new TextGenerator();
+		//TextGenerationSettings textGeneratorSettings = text.GetGenerationSettings(new Vector2(0, 100));
+		//textGeneratorSettings.updateBounds = true;
+		//textGeneratorSettings.scaleFactor = 1;
+		//textGenerator.Populate(content, textGeneratorSettings);
+		rectTransform.sizeDelta = new Vector2(500, 500);
 	}
 
 	private void OnDisable () {
