@@ -77,8 +77,13 @@ public class GameState : MainState {
                 {
 					content = content.Substring(3);
 					contentView.richText = new RichTextSubstring(contentView.content + content);
-					//contentView.gl
 					contentView.textTyper.TypeText(content,contentView.textTyperSettings);
+				}
+				else if (content.StartsWith("Day"))
+				{
+					contentView = CreateContentView("");
+					contentView = CreateContentView(content);
+					contentView.text.fontSize = 35;
 				}
 				else
 					contentView = CreateContentView(content);

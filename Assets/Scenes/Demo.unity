@@ -4387,7 +4387,6 @@ GameObject:
   - component: {fileID: 1835827615}
   - component: {fileID: 1835827614}
   - component: {fileID: 1835827613}
-  - component: {fileID: 1835827617}
   m_Layer: 5
   m_Name: Enso Presents
   m_TagString: Untagged
@@ -4473,9 +4472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62969df608484908859668afc3e4e2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: 'A habitat orbiting Mars is under construction which will become a new
-    sanctuary for humanity. Millions of workers board transport ships departing Earth
-    to escape the dying planet or '
+  content: 
   letterTypeTime: {x: 0.06, y: 0.06}
 --- !u!222 &1835827616
 CanvasRenderer:
@@ -4485,27 +4482,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835827611}
   m_CullTransparentMesh: 1
---- !u!114 &1835827617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835827611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38a3104349a9f42dfbad178106393e62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layoutGroup: {fileID: 809506817}
-  scrollRect: {fileID: 0}
-  minY: 0
-  maxY: 0
-  paperImage: {fileID: 1275852337}
-  paperTopSpacingCanvasHeightFraction: 0.2
-  paperBottomSpacingCanvasHeightFraction: 0.25
-  paperBottomOffset: 100
-  scrollDistanceUntilHidingChoices: 100
 --- !u!1 &1855673455
 GameObject:
   m_ObjectHideFlags: 0
